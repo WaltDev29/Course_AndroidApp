@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">2026_Dir_2_3</string>
+    <string name="btn_web_str">네이버 홈페이지 열기</string>
+    <string name="btn_call_str">911에 전화하기</string>
+    <string name="btn_gallery_str">갤러리 열기</string>
+    <string name="btn_close_str">종료</string>
+</resources>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- androidx.constraintlayout.widget.ConstraintLayout : 상대 레이아웃-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:context=".MainActivity">
+
+    <!--
+    # 앱 만드는 순서
+    1. Resources (Image, Color, String)
+    2. Layout / UI
+    3. Event Programming
+    -->
+
+<!-- ============ Buttons ============ -->
+    <Button
+        android:id="@+id/btn_web"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_web_str"
+        android:textSize="20sp"
+        android:backgroundTint="@color/blue"
+        />
+
+    <Button
+        android:id="@+id/btn_call"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_call_str"
+        android:textSize="20sp"
+        android:backgroundTint="@color/purple"
+        />
+
+    <Button
+        android:id="@+id/btn_gallery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_gallery_str"
+        android:textSize="20sp"
+        android:backgroundTint="@color/green"
+        />
+
+    <Button
+        android:id="@+id/btn_close"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_close_str"
+        android:textSize="20sp"
+        android:backgroundTint="@color/pink"
+        />
+
+</LinearLayout>
