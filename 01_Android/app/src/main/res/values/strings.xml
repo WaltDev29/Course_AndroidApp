@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Hello Android</string>
+    <string name="greeting">안녕하세요!</string>
+    <string name="btn">버튼입니다.</string>
+    <string name="checkbox">체크박스</string>
+    <string name="radio1">밥</string>
+    <string name="radio2">빵</string>
+    <string name="radio3">면</string>
+</resources>

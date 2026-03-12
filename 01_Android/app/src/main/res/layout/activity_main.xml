@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 기본 : androidx.constraintlayout.widget.ConstraintLayout -->
+<!-- LinearLayout : 선형 레이아웃 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/green"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".MainActivity">
+<!--  android:gravity="center" : 위젯 가운데 배치 -->
+<!--  android:orientation="vertical" : 위젯 정렬을 세로로 정렬-->
+
+    <TextView
+        android:text="@string/greeting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:textColor="@color/white"/>
+
+
+    <Button
+        android:id="@+id/btn"
+        android:text="@string/btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:textSize="30sp"/>
+<!--  android:id="@+id/btn" : id 부여 -->
+<!--  android:layout_width="wrap_content" : 컨텐츠 크기만큼의 크기를 가짐  -->
+
+
+    <CheckBox
+        android:text="@string/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:textColor="@color/white"
+        android:layout_marginBottom="20dp"
+        android:buttonTint="@color/white"/>
+
+
+    <RadioGroup
+        android:id="@+id/rg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_rice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/radio1"
+            android:textSize="25sp"
+            android:textColor="@color/white" />
+
+        <RadioButton
+            android:id="@+id/rb_bread"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/radio2"
+            android:textSize="25sp"
+            android:textColor="@color/white"/>
+
+        <RadioButton
+            android:id="@+id/rb_noodle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/radio3"
+            android:textSize="25sp"
+            android:textColor="@color/white"/>
+    </RadioGroup>
+</LinearLayout>
