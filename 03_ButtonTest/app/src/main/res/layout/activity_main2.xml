@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Padding, Margin -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="30dp">
+
+    <TextView
+        android:id="@+id/text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:text="이름을 입력해주세요."
+        android:textSize="20sp"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/name_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="Input Text"
+        android:padding="15dp"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:padding="15dp"
+        android:text="확인"
+        android:textSize="20sp"/>
+
+</LinearLayout>

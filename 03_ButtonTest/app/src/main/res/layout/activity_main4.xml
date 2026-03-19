@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 예제 구현 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="직접 풀어보기 4-2"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:background="@color/black"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="30dp"
+        >
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button 1"
+            android:backgroundTint="@color/blue"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Text View"
+            android:textSize="20sp"
+            android:layout_marginVertical="10dp"
+            android:textAlignment="center"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:background="@color/blue"
+            android:hint="텍스트를 입력해주세요"
+            android:textAlignment="center"
+            android:singleLine="true"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:background="@color/blue"
+            android:hint="텍스트를 입력해주세요"
+            android:textAlignment="center"
+            android:singleLine="true"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/purple"
+            android:text="Button 2"
+            />
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
