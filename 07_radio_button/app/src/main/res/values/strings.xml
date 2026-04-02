@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">07_radio_button</string>
+    <string name="radio_title">성별 선택</string>
+    <string name="radio_result">선택한 성별 : </string>
+</resources>
