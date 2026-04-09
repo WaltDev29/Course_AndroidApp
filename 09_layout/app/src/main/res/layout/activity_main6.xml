@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <Button
+        android:id="@+id/baseBtn"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerInParent="true"
+        android:text="기준위젯"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/baseBtn"
+        android:layout_toLeftOf="@+id/baseBtn"
+        android:text="버튼 1"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/baseBtn"
+        android:layout_toLeftOf="@+id/baseBtn"
+        android:text="버튼 2"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/baseBtn"
+        android:layout_toLeftOf="@+id/baseBtn"
+        android:text="버튼 3"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/baseBtn"
+        android:layout_above="@+id/baseBtn"
+        android:text="버튼 4"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/baseBtn"
+        android:layout_below="@+id/baseBtn"
+        android:text="버튼 5"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/baseBtn"
+        android:layout_above="@+id/baseBtn"
+        android:text="버튼 6"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/baseBtn"
+        android:layout_alignBottom="@+id/baseBtn"
+        android:text="버튼 7"
+        />
+
+</RelativeLayout>
