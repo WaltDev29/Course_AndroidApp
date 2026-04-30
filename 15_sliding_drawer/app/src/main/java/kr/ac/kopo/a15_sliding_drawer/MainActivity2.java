@@ -1,6 +1,9 @@
 package kr.ac.kopo.a15_sliding_drawer;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ViewFlipper;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +12,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity2 extends AppCompatActivity {
+    ViewFlipper vf;
+    Button btnPrev, btnNext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,5 +25,18 @@ public class MainActivity2 extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        vf = findViewById(R.id.viewFlipper);
+
+        btnPrev = findViewById(R.id.btnPrev);
+        btnNext = findViewById(R.id.btnNext);
+
+        btnPrev.setOnClickListener(btnListener);
+        btnNext.setOnClickListener(btnListener);
     }
+
+    View.OnClickListener btnListener = v -> {
+        if (v.getId() == btnPrev.getId()) vf.showPrevious();
+        else if (v.getId() == btnNext.getId()) vf.showNext();
+    };
 }
