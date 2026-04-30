@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     android:layout_margin="15dp"
     android:orientation="vertical"
-    android:gravity="center"
     tools:context=".MainActivity">
 
     <Chronometer
@@ -17,22 +16,15 @@
         android:layout_marginBottom="20dp"
         android:gravity="center"
         android:textSize="25sp"
+        android:background="#D9D9D9"
         android:format="예약에 걸린 시간 : %s"
-        />
-
-    <Button
-        android:id="@+id/btnStart"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="예약 시작"
-        android:layout_marginBottom="20dp"
-        android:textSize="20sp"
         />
 
     <RadioGroup
         android:id="@+id/rg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:visibility="invisible"
         >
         <RadioButton
             android:id="@+id/rbDate"
@@ -53,11 +45,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
-        <CalendarView
-            android:id="@+id/calView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
         <TimePicker
             android:id="@+id/timePicker"
             android:layout_width="match_parent"
@@ -65,28 +52,22 @@
             android:timePickerMode="spinner"
             android:visibility="invisible"
             />
-    </FrameLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-        <Button
-            android:id="@+id/btnDone"
+        <DatePicker
+            android:id="@+id/calView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="예약"
+            android:visibility="invisible"
             />
-        <TextView
-            android:id="@+id/textResult"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textSize="20sp"
-            />
+    </FrameLayout>
 
-    </LinearLayout>
-
+    <TextView
+        android:id="@+id/textResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="예약 결과"
+        android:textAlignment="center"
+        android:background="#D9D9D9"
+        android:textSize="20sp"
+        />
 
 </LinearLayout>

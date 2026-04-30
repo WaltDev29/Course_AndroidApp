@@ -1,17 +1,16 @@
 package kr.ac.kopo.a13_reservation;
 
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.View;
-import android.widget.Button;
-import android.widget.CalendarView;
 import android.widget.Chronometer;
+import android.widget.DatePicker;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,10 +20,9 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
     Chronometer chronometer;
-    Button btnStart, btnDone;
     RadioGroup rg;
     RadioButton rbDate, rbTime;
-    CalendarView calView;
+    DatePicker calView;
     TimePicker timePicker;
     TextView textResult;
     int  selectedDay, selectedMonth, selectedYear;
@@ -42,8 +40,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         chronometer = findViewById(R.id.chronometer);
-        btnStart = findViewById(R.id.btnStart);
-        btnDone = findViewById(R.id.btnDone);
+        chronometer.setOnClickListener(btnStartListener);
 
         rg = findViewById(R.id.rg);
         rbDate = findViewById(R.id.rbDate);
@@ -53,11 +50,13 @@ public class MainActivity extends AppCompatActivity {
         timePicker = findViewById(R.id.timePicker);
 
         textResult = findViewById(R.id.textResult);
+        textResult.setOnLongClickListener(btnDoneListener);
 
-        btnStart.setOnClickListener(btnStartListener);
-        btnDone.setOnClickListener(btnDoneListener);
         rg.setOnCheckedChangeListener(rgListener);
-        calView.setOnDateChangeListener(calListener);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            calView.setOnDateChangedListener(calListener);
+        }
 
     }
 
@@ -65,17 +64,24 @@ public class MainActivity extends AppCompatActivity {
         chronometer.setBase(SystemClock.elapsedRealtime());
         chronometer.start();
         chronometer.setTextColor(Color.RED);
+        calView.setVisibility(View.VISIBLE);
+        timePicker.setVisibility(View.VISIBLE);
+        rg.setVisibility(View.VISIBLE);
     };
 
-    View.OnClickListener btnDoneListener = v -> {
+    View.OnLongClickListener btnDoneListener = v -> {
         chronometer.stop();
         chronometer.setTextColor(Color.BLUE);
+        calView.setVisibility(View.INVISIBLE);
+        timePicker.setVisibility(View.INVISIBLE);
+        rg.setVisibility(View.INVISIBLE);
         
         selectedHour = timePicker.getHour();
         selectedMinute = timePicker.getMinute();
 
         String result = selectedYear +  "년 " + selectedMonth + "월 " + selectedDay + "일" + selectedHour +"시 " + selectedMinute + "분에 예약 완료";
         textResult.setText(result);
+        return true;
     };
 
     RadioGroup.OnCheckedChangeListener rgListener = (v, checkedId) -> {
@@ -85,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         else if (checkedId == R.id.rbTime) timePicker.setVisibility(View.VISIBLE);
     };
 
-    CalendarView.OnDateChangeListener calListener = (v,year,month,day) -> {
+    DatePicker.OnDateChangedListener calListener = (v,year,month,day) -> {
         selectedDay = day;
         selectedMonth = month+1;
         selectedYear = year;
