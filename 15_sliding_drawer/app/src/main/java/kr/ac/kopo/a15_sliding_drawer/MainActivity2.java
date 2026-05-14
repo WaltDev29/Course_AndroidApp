@@ -13,7 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity2 extends AppCompatActivity {
     ViewFlipper vf;
-    Button btnPrev, btnNext;
+    Button btnStart, btnStop;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,15 +28,16 @@ public class MainActivity2 extends AppCompatActivity {
 
         vf = findViewById(R.id.viewFlipper);
 
-        btnPrev = findViewById(R.id.btnPrev);
-        btnNext = findViewById(R.id.btnNext);
+        btnStart = findViewById(R.id.btnStart);
+        btnStop = findViewById(R.id.btnStop);
 
-        btnPrev.setOnClickListener(btnListener);
-        btnNext.setOnClickListener(btnListener);
+        btnStart.setOnClickListener(btnListener);
+        btnStop.setOnClickListener(btnListener);
+        vf.setFlipInterval(1000);
     }
 
     View.OnClickListener btnListener = v -> {
-        if (v.getId() == btnPrev.getId()) vf.showPrevious();
-        else if (v.getId() == btnNext.getId()) vf.showNext();
+        if (v.getId() == btnStart.getId()) vf.startFlipping();
+        else if (v.getId() == btnStop.getId()) vf.stopFlipping();
     };
 }
