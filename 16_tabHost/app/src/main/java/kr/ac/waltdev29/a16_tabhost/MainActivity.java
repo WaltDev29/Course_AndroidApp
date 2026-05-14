@@ -20,16 +20,20 @@ public class MainActivity extends TabActivity {
         setContentView((R.layout.activity_main));
         TabHost tabHost = getTabHost();
 
-        TabHost.TabSpec tabSpecSong = tabHost.newTabSpec("Song").setIndicator("음악");
-        tabSpecSong.setContent(R.id.tabSong);
-        tabHost.addTab(tabSpecSong);
+        TabHost.TabSpec tabSpecCat = tabHost.newTabSpec("Cat").setIndicator("Cat");
+        tabSpecCat.setContent(R.id.img_cat);
+        tabHost.addTab(tabSpecCat);
 
-        TabHost.TabSpec tabSpecArtist = tabHost.newTabSpec("Artist").setIndicator("가수");
-        tabSpecArtist.setContent(R.id.tabArtist);
-        tabHost.addTab(tabSpecArtist);
+        TabHost.TabSpec tabSpecFrog = tabHost.newTabSpec("Frog").setIndicator("Frog");
+        tabSpecFrog.setContent(R.id.img_frog);
+        tabHost.addTab(tabSpecFrog);
 
-        TabHost.TabSpec tabSpecAlbum = tabHost.newTabSpec("Album").setIndicator("앨범");
-        tabSpecAlbum.setContent(R.id.tabAlbum);
-        tabHost.addTab(tabSpecAlbum);
+        TabHost.TabSpec tabSpecGoat = tabHost.newTabSpec("Goat").setIndicator("Goat");
+        tabSpecGoat.setContent(R.id.img_goat);
+        tabHost.addTab(tabSpecGoat);
+
+        TabHost.TabSpec tabSpecDonkey = tabHost.newTabSpec("Donkey").setIndicator("Donkey");
+        tabSpecDonkey.setContent(R.id.img_donkey);
+        tabHost.addTab(tabSpecDonkey);
     }
 }
