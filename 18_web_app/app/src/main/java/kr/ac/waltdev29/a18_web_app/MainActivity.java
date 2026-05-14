@@ -1,6 +1,13 @@
 package kr.ac.waltdev29.a18_web_app;
 
 import android.os.Bundle;
+import android.view.View;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,9 +16,9 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
-    EditText edit1;
+    EditText edtUrl;
     WebView web1;
-    Button btnGo, btnPrev;
+    Button btnGo, btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,16 +31,16 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        edit1 = findViewById(R.id.edit1);
+        edtUrl = findViewById(R.id.edit1);
         web1 = findViewById(R.id.web1);
         btnGo = findViewById(R.id.btn_go);
-        btnPrev = findViewById(R.id.btn_prev);
+        btnBack = findViewById(R.id.btn_prev);
 
-        web1 = (WebView) findViewById(R.id.webView1);
+        web1 = (WebView) findViewById(R.id.web1);
 
-        web1.setWebViewClient(new CookWebViewClient());
+        web1.setWebViewClient(new WebView1());
 
-        WebSettings webSet = web.getSettings();
+        WebSettings webSet = web1.getSettings();
         webSet.setBuiltInZoomControls(true);
         webSet.setJavaScriptEnabled(true);
 
