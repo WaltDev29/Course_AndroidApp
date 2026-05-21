@@ -6,6 +6,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import androidx.activity.EdgeToEdge;
@@ -16,8 +18,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
-    LinearLayout linear;
-    Button btn;
+    EditText editText;
+    ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        linear = findViewById(R.id.main);
-        btn = findViewById(R.id.btn);
+        editText = findViewById(R.id.editText_rotate);
+        imageView = findViewById(R.id.imageView);
     }
 
     @Override
@@ -45,25 +47,25 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         super.onOptionsItemSelected(item);
-        if (item.getItemId() == R.id.item_red) {
-            linear.setBackgroundColor(Color.RED);
+        if (item.getItemId() == R.id.item_rotate) {
+            int rotate = editText.getText().toString().isEmpty() ? 0 : Integer.parseInt(editText.getText().toString());
+            imageView.setRotation(rotate);
             return true;
         }
-        else if (item.getItemId() == R.id.item_green) {
-            linear.setBackgroundColor(Color.GREEN);
+
+        else if (item.getItemId() == R.id.item_bird) {
+            imageView.setImageResource(R.drawable.bird);
+            item.setChecked(true);
             return true;
         }
-        else if (item.getItemId() == R.id.item_blue) {
-            linear.setBackgroundColor(Color.BLUE);
+        else if (item.getItemId() == R.id.item_bee) {
+            imageView.setImageResource(R.drawable.bee);
+            item.setChecked(true);
             return true;
         }
-        else if (item.getItemId() == R.id.btn_rotate) {
-            btn.setRotation(btn.getRotation() + 45);
-            return true;
-        }
-        else if (item.getItemId() == R.id.zoomin) {
-            btn.setScaleX(2);
-            btn.setScaleY(2);
+        else if (item.getItemId() == R.id.item_fish) {
+            imageView.setImageResource(R.drawable.fish);
+            item.setChecked(true);
             return true;
         }
 
