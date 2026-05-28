@@ -1,6 +1,5 @@
 package kr.ac.waltdev29.a21_dialog;
 
-import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
@@ -17,6 +16,8 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
     LinearLayout linear;
     Button btnAlert;
+    Button btnSelect;
+    String[] itemArr = {"떡볶이", "튀김", "순대"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         linear = findViewById(R.id.main);
         btnAlert = findViewById(R.id.btn_alert);
+        btnSelect = findViewById(R.id.btn_select);
 
         btnAlert.setOnClickListener(v -> {
             AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
@@ -38,16 +40,22 @@ public class MainActivity extends AppCompatActivity {
             dialog.setMessage("배경색을 초록색으로 변경하시겠습니까?");
             dialog.setIcon(R.drawable.ic_launcher_foreground);
 
-
-
-            dialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    linear.setBackgroundColor(Color.GREEN);
-                    Toast.makeText(MainActivity.this, "배경색을 초록색으로 변경하였습니다.", Toast.LENGTH_SHORT).show();
-                }
+            dialog.setPositiveButton("확인", (dialog2, which) -> {
+                linear.setBackgroundColor(Color.GREEN);
+                Toast.makeText(MainActivity.this, "배경색을 초록색으로 변경하였습니다.", Toast.LENGTH_SHORT).show();
             });
             dialog.setNegativeButton("취소", null);
+
+            dialog.show();
+        });
+
+        btnSelect.setOnClickListener(v -> {
+            AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
+            dialog.setTitle("버튼 라벨 변경");
+            dialog.setIcon(R.drawable.ic_launcher_foreground);
+
+            dialog.setItems(itemArr, (dialog1, which) -> btnSelect.setText(itemArr[which]));
+            dialog.setPositiveButton("확인", null);
 
             dialog.show();
         });
