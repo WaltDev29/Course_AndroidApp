@@ -15,9 +15,9 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
     LinearLayout linear;
-    Button btnAlert;
-    Button btnSelect;
+    Button btnAlert, btnSelect, btnRadio, btnCheckbox;
     String[] itemArr = {"떡볶이", "튀김", "순대"};
+    boolean[] checkArr = {false, false, false};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         linear = findViewById(R.id.main);
         btnAlert = findViewById(R.id.btn_alert);
         btnSelect = findViewById(R.id.btn_select);
+        btnRadio = findViewById(R.id.btn_radio);
+        btnCheckbox = findViewById(R.id.btn_cb);
 
         btnAlert.setOnClickListener(v -> {
             AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
@@ -55,6 +57,43 @@ public class MainActivity extends AppCompatActivity {
             dialog.setIcon(R.drawable.ic_launcher_foreground);
 
             dialog.setItems(itemArr, (dialog1, which) -> btnSelect.setText(itemArr[which]));
+            dialog.setPositiveButton("확인", null);
+
+            dialog.show();
+        });
+
+        btnRadio.setOnClickListener(v -> {
+            AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
+            dialog.setTitle("버튼 라벨 변경");
+            dialog.setIcon(R.drawable.ic_launcher_foreground);
+
+            dialog.setSingleChoiceItems(itemArr, 1, (dialog1, which) -> btnRadio.setText(itemArr[which]));
+            dialog.setPositiveButton("확인", null);
+
+            dialog.show();
+        });
+
+        btnCheckbox.setOnClickListener(v -> {
+            AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
+            dialog.setTitle("버튼 라벨 변경");
+            dialog.setIcon(R.drawable.ic_launcher_foreground);
+
+            dialog.setMultiChoiceItems(
+                    itemArr,
+                    checkArr,
+                    (dialog1, which, isChecked) -> {
+                        if (isChecked) checkArr[which] = true;
+
+                        String str = "";
+
+                        for (int i = 0; i < checkArr.length; i++) {
+                            if (checkArr[i]) {
+                                str += itemArr[i] + " ";
+                            }
+                        }
+
+                        btnCheckbox.setText(str);
+                    });
             dialog.setPositiveButton("확인", null);
 
             dialog.show();
